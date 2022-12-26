@@ -13,20 +13,32 @@
     <input id = "num2" type="text">
     <p>Operate way?</p>
     <select id = "operateWay" name="operate way">
-        <option id = "+" value="+">+</option>
-        <option id = "-" value="-">-</option>
-        <option id = "*" value="*">*</option>
-        <option id = "/" value="/">/</option>
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
     </select>
+    <p></p>
     <input id = "calculate" type = "button" value = "calculate">
     <div id="result"></div>
 	<script>
-        var num1 = document.getElementById("num1");
-        var num2 = document.getElementById("num2");
-        var button = document.getElementById("calculate");
-        button.addEventListener("click", calculate);
-        function calculate(){
-            var result = 0;
+        var num1;
+        var num2;
+        var selected;
+        document.getElementById("calculate").onclick = function(){
+            num1 = Number(document.getElementById("num1").value);
+            num2 = Number(document.getElementById("num2").value);
+            selected = document.getElementById("operateWay").value;
+            var result;
+            if(selected == "+"){
+                result = num1+num2;
+            }else if(selected == "-"){
+                result = num1-num2;
+            }else if(selected == "*"){
+                result = num1*num2;
+            }else{
+                result = num1/num2;
+            }
             var table=document.getElementById("result");
             table.innerHTML="<p>Result = "+result+"</p>"
         }
