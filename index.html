@@ -25,22 +25,34 @@
         var num1;
         var num2;
         var selected;
+        var result;
         document.getElementById("calculate").onclick = function(){
             num1 = Number(document.getElementById("num1").value);
             num2 = Number(document.getElementById("num2").value);
             selected = document.getElementById("operateWay").value;
-            var result;
             if(selected == "+"){
-                result = num1+num2;
+                addition();
             }else if(selected == "-"){
-                result = num1-num2;
+                subtraction();
             }else if(selected == "*"){
-                result = num1*num2;
+                multiplication();
             }else{
-                result = num1/num2;
+                division();
             }
             var table=document.getElementById("result");
             table.innerHTML="<p>Result = "+result+"</p>"
+        }
+        function addition(){
+            result = num1 + num2;
+        }
+        function subtraction(){
+            result = num1 - num2;
+        }
+        function multiplication(){
+            result = num1 * num2;
+        }
+        function division(){
+            result = num1 / num2;
         }
     </script>
 </body>
